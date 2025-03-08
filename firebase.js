@@ -43,7 +43,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
         console.error("Error submitting form: ", error);
         alert("Failed to submit form");
     }
-  const googleSheetURL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
+  const googleSheetURL = "https://script.google.com/macros/s/AKfycbxrlURPRPPC35VKHQBkbnvpCse2luy60iaa-Uar06wlJVvRoxxmGhSbr-GWuxD5BBdT/exec";
 
 fetch(googleSheetURL, {
     method: "POST",
