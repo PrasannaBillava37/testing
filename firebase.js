@@ -43,20 +43,4 @@ document.getElementById("contactForm").addEventListener("submit", async function
         console.error("Error submitting form: ", error);
         alert("Failed to submit form");
     }
-
-    // ✅ Send Data to Google Sheets
-    const googleSheetURL = "https://script.google.com/macros/s/AKfycbxrlURPRPPC35VKHQBkbnvpCse2luy60iaa-Uar06wlJVvRoxxmGhSbr-GWuxD5BBdT/exec";
-
-    try {
-        await fetch(googleSheetURL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, phone, message }),
-        });
-
-        console.log("Data sent to Google Sheets!");
-    } catch (error) {
-        console.error("Error sending data to Google Sheets:", error);
-    }
 });
