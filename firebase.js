@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyDSUrdarpAqrf686M0MzZWS1ZesQ_pkmZE",
   authDomain: "testing-ce976.firebaseapp.com",
   projectId: "testing-ce976",
-  storageBucket: "testing-ce976.firebasestorage.app",
+  storageBucket: "testing-ce976.appspot.com", // ✅ Corrected storage bucket
   messagingSenderId: "830414676180",
   appId: "1:830414676180:web:1c974c3850520949eddb41",
   measurementId: "G-48W9C5M743"
@@ -22,18 +22,18 @@ document.getElementById("contactForm").addEventListener("submit", async function
     event.preventDefault();
 
     // Get form values
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let message = document.getElementById("message").value;
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message").value.trim();
 
     try {
         // Add data to Firestore
         await addDoc(collection(db, "FormSubmissions"), {
-            name: name,
-            email: email,
-            phone: phone,
-            message: message,
+            name,
+            email,
+            phone,
+            message,
             timestamp: serverTimestamp()
         });
 
@@ -43,11 +43,20 @@ document.getElementById("contactForm").addEventListener("submit", async function
         console.error("Error submitting form: ", error);
         alert("Failed to submit form");
     }
-  const googleSheetURL = "https://script.google.com/macros/s/AKfycbxrlURPRPPC35VKHQBkbnvpCse2luy60iaa-Uar06wlJVvRoxxmGhSbr-GWuxD5BBdT/exec";
 
-fetch(googleSheetURL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, phone, message }),
+    // ✅ Send Data to Google Sheets
+    const googleSheetURL = "https://script.google.com/macros/s/AKfycbxrlURPRPPC35VKHQBkbnvpCse2luy60iaa-Uar06wlJVvRoxxmGhSbr-GWuxD5BBdT/exec";
+
+    try {
+        await fetch(googleSheetURL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, phone, message }),
+        });
+
+        console.log("Data sent to Google Sheets!");
+    } catch (error) {
+        console.error("Error sending data to Google Sheets:", error);
+    }
 });
