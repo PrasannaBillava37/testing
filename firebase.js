@@ -43,4 +43,11 @@ document.getElementById("contactForm").addEventListener("submit", async function
         console.error("Error submitting form: ", error);
         alert("Failed to submit form");
     }
+  const googleSheetURL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
+
+fetch(googleSheetURL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, phone, message }),
 });
