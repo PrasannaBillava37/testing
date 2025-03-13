@@ -62,3 +62,30 @@ button {
 button:hover {
     transform: translateY(-2px);
 }
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.card a:hover {
+    background: #0056b3;
+}
+
