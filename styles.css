@@ -64,10 +64,11 @@ button:hover {
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: nowrap; /* Ensures a single row layout */
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -77,7 +78,7 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 300px;
-    margin: 20px auto;
+    margin: auto;
 }
 
 .card a {
