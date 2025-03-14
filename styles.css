@@ -63,6 +63,13 @@ button:hover {
     transform: translateY(-2px);
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures a single row layout */
+    justify-content: center;
+    gap: 20px;
+}
+
 .card {
     background: #fff;
     padding: 20px;
@@ -78,8 +85,8 @@ button:hover {
     text-decoration: none;
     color: white;
     background: #007bff;
-    padding: 100px;
-    margin: 50px 0;
+    padding: 20px;
+    margin: 10px 0;
     border-radius: 5px;
     font-weight: bold;
     transition: 1.0s;
@@ -87,8 +94,7 @@ button:hover {
 
 .card a:hover {
     background: #545f6b;
-    color:black;
-    border: 5px slolid black;
+    color: black;
+    border: 5px solid black;
     transition: 1.0s;
 }
-
