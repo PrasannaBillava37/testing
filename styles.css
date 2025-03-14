@@ -64,6 +64,7 @@ button:hover {
 }
 
 .card {
+    display: grid;
     grid-template-columns: 1fr 1fr;  
     grid-template-rows: auto auto;
     background: #fff;
